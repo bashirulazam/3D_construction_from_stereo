@@ -1,0 +1,11 @@
+function [P] = compute_P(points_3D,points_2D)
+[B,C] = form_B_C(points_3D,points_2D);
+Z = calc_Z(B,C);
+Y = calc_Y(B,C,Z);
+p1 = Y(1:3,1);
+p14 = Y(4,1);
+p2 = Y(5:7,1);
+p24 = Y(8,1);
+p34 = Y(9,1);
+p3 = Z;
+P = [ p1' p14; p2' p24; p3' p34];
